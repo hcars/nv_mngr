@@ -1,0 +1,17 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* center align the form elements */
+    padding: 20px;
+    border: 1px solid #333; /* add the dark border */
+    box-shadow: 5px 5px 10px #333; /* add the shadow */
+}
+
+.form-control {
+margin: 10px 0; /* add spacing between form elements */
+}
+
+.form-control input {
+text-align: center; /* center align the input */
+}
+

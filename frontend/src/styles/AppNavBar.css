@@ -1,0 +1,25 @@
+.navbar {
+    width: 80%;
+    margin: 0 auto;
+    text-align: left;
+  }
+  
+  .navbar-nav {
+    display: flex; /* Make items-container a flex container */
+    flex-wrap: nowrap; /* Disable flex items from wrapping onto multiple lines */
+    list-style: none;
+  }
+  
+  .nav-item {
+    padding: 10px 20px;
+    background-color: #808388;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 20px;
+  }
+  
+  .nav-item:hover {
+    background-color: #fff;
+    color: #808388;
+  }
