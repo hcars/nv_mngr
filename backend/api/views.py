@@ -58,6 +58,14 @@ class ItemView(APIView):
 
     @action(methods=['get'], detail=False)
     def get(self, request):
-        items = self.get_queryset()
+        if "filterUser" in request.GET:
+            user = User.objects.filter(username=request.GET.get("filterUser")).first()
+            if user:
+                items = Item.objects.filter(createdBy=user.id)
+            else:
+                items = self.get_queryset().order_by('-id')[:10]
+        else:
+            items = self.get_queryset().order_by('-id')[:10]
         serializer = ItemSerializer(items, many=True)
         return Response(serializer.data)
+    
