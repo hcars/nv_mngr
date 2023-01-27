@@ -64,10 +64,9 @@ class ItemDetailView(APIView):
     @action(methods=['delete'], detail=True)
     @permission_classes([IsAuthenticated])
     def delete(self, request, pk):
-        print(request.user)
-        # item = self.get_queryset().get(pk=pk)
-        # item.delete()
-        # return Response(status=status.HTTP_204_NO_CONTENT)
+        item = self.get_queryset().get(pk=pk)
+        item.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 class ItemView(APIView):
@@ -93,6 +92,11 @@ class ItemView(APIView):
     
     @action(methods=['post'], detail=False)
     def post(self, request):
+        if "quantity" in request.data:
+            if int(request.data["quantity"]) < 1:
+                return Response(status=status.HTTP_400_BAD_REQUEST)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
         serializer = ItemSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()

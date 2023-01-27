@@ -28,7 +28,7 @@ function ItemDetail() {
   
 
 
-  if (user.user_id === item.createdBy){
+  if ((user) && (user.user_id === item.createdBy)){
     return (
         <div>
         <h1>Name:</h1>
