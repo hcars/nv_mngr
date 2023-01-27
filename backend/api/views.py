@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -55,16 +55,25 @@ class ItemDetailView(APIView):
     def get_queryset(self):
         return Item.objects.all()
 
+    @action(methods='put', detail=True)
+    def put(self, request, pk):
+        item = get_object_or_404(Item, pk=pk)
+        serializer = ItemSerializer(item, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
     @action(methods='get', detail=True)
     def get(self, request, pk):
-        item = self.get_queryset().get(pk=pk)
+        item = get_object_or_404(Item, pk=pk)
         serializer = ItemSerializer(item)
         return Response(serializer.data)
 
     @action(methods=['delete'], detail=True)
     @permission_classes([IsAuthenticated])
     def delete(self, request, pk):
-        item = self.get_queryset().get(pk=pk)
+        item = get_object_or_404(Item, pk=pk)
         item.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
