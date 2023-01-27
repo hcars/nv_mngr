@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import AuthContext from "../context/AuthContext";
+import "../styles/LoginPage.css"
 
 const LoginPage = () => {
   const { loginUser } = useContext(AuthContext);
@@ -11,15 +12,14 @@ const LoginPage = () => {
   };
 
   return (
-    <section>
+    <section className="login-container">
       <form onSubmit={handleSubmit}>
-        <h1>Login </h1>
-        <hr />
-        <label htmlFor="username">Username</label>
-        <input type="text" id="username" placeholder="Enter Username" />
-        <br></br>
-        <label htmlFor="password">Password</label>
-        <input type="password" id="password" placeholder="Enter Password" />
+        <div className="form-control">
+          <input type="text" id="username" placeholder="Enter Username" />
+        </div>
+        <div className="form-control">
+          <input type="password" id="password" placeholder="Enter Password" />
+        </div>
         <button type="submit">Login</button>
       </form>
     </section>

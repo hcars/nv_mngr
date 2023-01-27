@@ -2,11 +2,9 @@ import React from "react";
 import "./index.css";
 import Footer from "./components/Footer";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import PrivateRoute from "./utils/PrivateRoute";
 import { AuthProvider } from "./context/AuthContext";
 import Login from "./views/loginPage";
 import Register from "./views/registerPage";
-import ProtectedPage from "./views/ProtectedPage";
 import AppNavBar from "./components/AppNavBar";
 import HomePage from "./views/HomePage";
 import UserItems from "./views/UserItems";
@@ -20,7 +18,6 @@ function App() {
         <AuthProvider>
         <AppNavBar/>
           <Switch>
-            <PrivateRoute component={ProtectedPage} path="/protected" exact />
             <Route component={Login} path="/login" />
             <Route component={Register} path="/register" />
             <Route component={AddItem} path="/add" />
