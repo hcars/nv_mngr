@@ -13,8 +13,12 @@ function ItemDetail(props) {
   const history = useHistory();
   const { user } = useContext(AuthContext);
   const [edit, setEdit] = useState(false);  
+  const [deleted, setDeleted] = useState(false);
 
   useEffect(() => {
+    if (deleted){
+        history.push("/user_items");
+    }
     axios
       .get(`http://localhost:8000/api/items/${id}/`)
       .then(res => setItem(res.data))
@@ -27,13 +31,18 @@ function ItemDetail(props) {
         .then(res => {
             if(res.status === 204){
                 history.push("/user_items");
+                setDeleted(true);
             }
             else {
                 alert("Failed to Delete!");
+                setDeleted(false)
             }
         })
         .catch(err => console.log(err));
+        
     };
+
+    
   
     
 
