@@ -49,7 +49,6 @@ class HomePage extends Component {
             <h1 className="display-4">Inventory Management</h1>
             <form onSubmit={this.handleFilterUser}>
             <hr />
-
               <h1>Filter by User: </h1>
               <input type="text" id="username" placeholder="Enter Username" />
               <button type="submit">Filter</button>

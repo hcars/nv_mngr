@@ -11,6 +11,8 @@ function truncate(text){
     }
 }
 
+
+
 class ItemTile extends Component {
   constructor(props) {
     super(props);

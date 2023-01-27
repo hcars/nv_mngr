@@ -6,16 +6,25 @@ import "../styles/AppNavBar.css";
 
 
 function LoggedIn(props){
-  const { user } = useContext(AuthContext);
+  const { user, logoutUser } = useContext(AuthContext);
 
     if (user){
     return (
         <ul className="navbar-nav">
           <li className="nav-item active">
-              <a className="nav-link" href="/">Home</a>
+              <a className="nav-link" href="/">Items</a>
+          </li>
+          <li className="nav-item active">
+              <a className="nav-link" href="/user_items">My Items</a>
+          </li>
+          <li className="nav-item active">
+              <a className="nav-link" href="/add">Add Item</a>
           </li>
           <li className="nav-item">
             {<UserInfo user={user} />}
+          </li>
+          <li className='nav-item'>
+          <a className='nav-link' onClick={logoutUser}>Logout</a>
           </li>
         </ul>
       );

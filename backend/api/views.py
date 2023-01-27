@@ -69,3 +69,12 @@ class ItemView(APIView):
         serializer = ItemSerializer(items, many=True)
         return Response(serializer.data)
     
+    @action(methods=['post'], detail=False)
+    def post(self, request):
+        print(request.data)
+        serializer = ItemSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    

@@ -11,6 +11,8 @@ import Register from "./views/registerPage";
 import ProtectedPage from "./views/ProtectedPage";
 import AppNavBar from "./components/AppNavBar";
 import HomePage from "./views/HomePage";
+import UserItems from "./views/UserItems";
+import AddItem from "./views/addItem";
 
 function App() {
   return (
@@ -18,12 +20,12 @@ function App() {
       <div className="flex flex-col min-h-screen overflow-hidden">
         <AuthProvider>
         <AppNavBar/>
-
-          {/* <Navbar /> */}
           <Switch>
             <PrivateRoute component={ProtectedPage} path="/protected" exact />
             <Route component={Login} path="/login" />
             <Route component={Register} path="/register" />
+            <Route component={AddItem} path="/add" />
+            <Route component={UserItems} path="/user_items" />
             <Route component={HomePage} path="/" />
           </Switch>
         </AuthProvider>
