@@ -6,6 +6,7 @@ import ItemTile from '../components/ItemTile';
 import { useContext } from "react";
 import AuthContext from "../context/AuthContext";
 import { useEffect } from 'react';
+import Home from './userHomePage';
 import { useRef } from 'react';
 
 function UserItems(props) {
@@ -36,7 +37,8 @@ function UserItems(props) {
       <div>
         <Container className="home-page-container">
           <Container className="text-center">
-            <h1 className="display-4">Inventory Management</h1>         
+            <Home/>
+            <h1 className="display-4">My Items</h1>         
             <div className="items-container">
               {items.map(item => (
                 <ItemTile item={item}/>

@@ -2,14 +2,14 @@ import { useContext } from "react";
 import AuthContext from "../context/AuthContext";
 import React from "react";
 import axios from "axios";
-
+import { useHistory } from "react-router-dom";
 
 
 
 function AddItem (props) {
 
   const { user } = useContext(AuthContext);
-
+  const history = useHistory();
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -21,6 +21,7 @@ function AddItem (props) {
     })
     .then(res => {
       alert("Item Added!");
+      history.push("/user_items");
     })
     .catch(error => {
       console.log(error);
