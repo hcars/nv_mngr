@@ -34,7 +34,7 @@ function AddItem (props) {
       <form onSubmit={handleSubmit}>
         <h1>Add Item</h1>
         <hr />
-        <div>
+        <div className="form-control">
           <label htmlFor="name">Name</label>
           <input
             type="text"
@@ -43,7 +43,7 @@ function AddItem (props) {
             required
           />
         </div>
-        <div>
+        <div className="form-control">
           <label htmlFor="description">Description</label>
           <input
             type="text"
@@ -52,7 +52,7 @@ function AddItem (props) {
             required
           />
         </div>
-        <div>
+        <div className="form-control">
           <label htmlFor="quantity">Quantity</label>
           <input
             type="number"
@@ -61,7 +61,9 @@ function AddItem (props) {
             required
           />
         </div>
-        <button type="submit">Add</button>
+        <div className="form-control">
+          <button type="submit">Add</button>
+        </div>
       </form>
     </section>
   );

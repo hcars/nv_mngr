@@ -33,10 +33,18 @@ class HomePage extends Component {
       }
     })
     .then(res => {
+      if (res.status === 200){
         this.setState({
             items: res.data,
             filterUser: e.target.username.value
         });
+      }
+      if (res.status === 404) {
+        this.setState({
+          items: [],
+          filterUser: e.target.username.value
+      });      
+      }
     })
     .catch(err => {})
   }

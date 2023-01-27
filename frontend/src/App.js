@@ -8,7 +8,7 @@ import Register from "./views/registerPage";
 import AppNavBar from "./components/AppNavBar";
 import HomePage from "./views/HomePage";
 import UserItems from "./views/UserItems";
-import AddItem from "./views/addItem";
+import AddItem from "./views/AddItem";
 import ItemDetail from "./views/ItemDetail";
 
 function App() {

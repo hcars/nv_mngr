@@ -89,7 +89,7 @@ class ItemView(APIView):
     @action(methods=['get'], detail=False)
     def get(self, request):
         if "filterUser" in request.GET:
-            user = User.objects.filter(username=request.GET.get("filterUser")).first()
+            user = get_object_or_404(User, username=request.GET.get("filterUser"))
             if user:
                 items = Item.objects.filter(createdBy=user.id)
             else:
