@@ -10,8 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import django_heroku
-import dotenv
-import dj_database_url
 from pathlib import Path
 from datetime import timedelta
 import os
