@@ -49,12 +49,34 @@ def testEndPoint(request):
         return Response({'response': data}, status=status.HTTP_200_OK)
     return Response({}, status.HTTP_400_BAD_REQUEST)
 
+class ItemDetailView(APIView):
+    serializer_class = ItemSerializer
+
+    def get_queryset(self):
+        return Item.objects.all()
+
+    @action(methods='get', detail=True)
+    def get(self, request, pk):
+        item = self.get_queryset().get(pk=pk)
+        serializer = ItemSerializer(item)
+        return Response(serializer.data)
+
+    @action(methods=['delete'], detail=True)
+    @permission_classes([IsAuthenticated])
+    def delete(self, request, pk):
+        print(request.user)
+        # item = self.get_queryset().get(pk=pk)
+        # item.delete()
+        # return Response(status=status.HTTP_204_NO_CONTENT)
+
 
 class ItemView(APIView):
     serializer_class = ItemSerializer
 
     def get_queryset(self):
         return Item.objects.all()
+
+    
 
     @action(methods=['get'], detail=False)
     def get(self, request):
@@ -71,7 +93,6 @@ class ItemView(APIView):
     
     @action(methods=['post'], detail=False)
     def post(self, request):
-        print(request.data)
         serializer = ItemSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()

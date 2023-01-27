@@ -24,7 +24,7 @@ class ItemTile extends Component {
   render() {
     return (
       <div className="item-tile">
-        <div className="item-tile-name">{this.state.item.name}</div>
+        <div className="item-tile-name"><a href={"/details/" + this.state.item.id}>{this.state.item.name}</a></div>
         <div className="item-tile-description">
             <b>Description: </b>
             <p>

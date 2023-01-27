@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <div>
-      <h4>Created by Henry Carscadden</h4>
+      <h4>App created by Henry Carscadden</h4>
     </div>
   );
 };

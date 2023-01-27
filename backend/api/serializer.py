@@ -48,6 +48,14 @@ class RegisterSerializer(serializers.ModelSerializer):
 
 
 class ItemSerializer(serializers.ModelSerializer):
+     
+    username = serializers.SerializerMethodField()
+
+
     class Meta:
         model = Item
-        fields = ['name', 'description', 'quantity', 'createdBy']
+        fields = ['name', 'description', 'quantity', 'createdBy', 'id', "username"]
+   
+    
+    def get_username(self, obj):
+        return obj.createdBy.username
