@@ -1,0 +1,13 @@
+.form-control {
+    width: 40%; /* limit the size of the boxes to 1/4 of the screen /
+    margin: 10px 0; / add spacing between form elements */
+    }
+    
+    .form-control input {
+    width: 100%; /* make the input take up the full width of the box /
+    text-align: center; / center align the input */
+    }
+    
+    button {
+    width: 20%; /* make the submit button 1/2 the size of the boxes */
+    }

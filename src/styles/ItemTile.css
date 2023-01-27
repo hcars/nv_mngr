@@ -1,0 +1,33 @@
+
+
+.item-tile {
+    padding: 10px; /* Add padding */
+    flex: 0 0 auto; /* Make item-tile a flex item */
+    border: 2px solid #333; 
+    box-shadow: 2px 2px 5px #333; 
+    width: 135px; /* Set width */
+    height: 135px; /* Set height */
+    margin: 15px;
+}
+
+.items-container {
+    display: flex; /* Make items-container a flex container */
+    flex-wrap: wrap; /* Enable flex items to wrap onto multiple lines */
+}
+
+.item-tile-name {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+
+.item-tile-description {
+    text-overflow: hidden;
+    font-size: 10px;
+    margin-bottom: 10px;
+}
+
+.item-tile-quantity {
+    font-size: 12px;
+}
+  
