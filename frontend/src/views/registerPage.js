@@ -3,13 +3,15 @@ import AuthContext from "../context/AuthContext";
 
 function Register() {
   const [username, setUsername] = useState("");
+  const [firstName, setfirstName] = useState("");
+  const [lastName, setlastName] = useState("");
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
   const { registerUser } = useContext(AuthContext);
 
   const handleSubmit = async e => {
     e.preventDefault();
-    registerUser(username, password, password2);
+    registerUser(username, firstName, lastName, password, password2);
   };
 
   return (
@@ -27,6 +29,27 @@ function Register() {
             required
           />
         </div>
+        <div>
+          <label htmlFor="firstName">First Name</label>
+          <input
+            type="text"
+            id="firstName"
+            onChange={e => setfirstName(e.target.value)}
+            placeholder="First Name"
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="lastName">Last Name</label>
+          <input
+            type="text"
+            id="lastName"
+            onChange={e => setlastName(e.target.value)}
+            placeholder="Last Name"
+            required
+          />
+        </div>
+
         <div>
           <label htmlFor="password">Password</label>
           <input
