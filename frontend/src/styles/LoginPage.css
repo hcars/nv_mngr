@@ -10,7 +10,7 @@
 
 
 .form-control {
-    width: 20%; /* limit the size of the boxes to 1/4 of the screen */
+    width: 75%; /* limit the size of the boxes to 1/4 of the screen */
     margin: 15px 0; /* add spacing between form elements */
 }
 
@@ -21,6 +21,6 @@
     
   
 button {
-    width: 20%; /* make the submit button 1/2 the size of the boxes */
+    width: 25%; /* make the submit button 1/2 the size of the boxes */
 }
 
