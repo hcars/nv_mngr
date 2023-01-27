@@ -51,6 +51,7 @@ function ItemDetail(props) {
         const updatedItem = {
             name: e.target.name.value,
             description: e.target.description.value,
+            quantity: e.target.quantity.value,
         };
         axios
         .put(`http://localhost:8000/api/items/${id}/`, updatedItem)
@@ -81,6 +82,8 @@ function ItemDetail(props) {
                     <br></br>
                     <h2>Description:</h2>
                     <input name="description" defaultValue={item.description}/> 
+                    <h2>Quantity:</h2>
+                    <input name="quantity" defaultValue={item.quantity}/> 
                     <button type="submit">Submit Changes</button>
                 </form>
             );
@@ -94,6 +97,8 @@ function ItemDetail(props) {
                 <br></br>
                 <h2>Description:</h2>
                 <p> {item.description}</p>
+                <h2>Quantity:</h2>
+                <p> {item.quantity}</p>
                 <h2>Created By:</h2>
                 <p> {item.username}</p>
                 <form onSubmit={handleSubmit}>
@@ -112,6 +117,8 @@ function ItemDetail(props) {
             <br></br>
             <h2>Description:</h2>
             <p> {item.description}</p>
+            <h2>Quantity:</h2>
+            <p> {item.quantity}</p>
             <h2>Created By:</h2>
             <p> {item.username}</p>
 
