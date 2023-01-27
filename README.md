@@ -1,4 +1,4 @@
-# Django Rest Auth
+
 
 ## For Running the Project
 
